@@ -103,6 +103,10 @@ var styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingTop: 60
+  },
+  backdrop: {
+      flex: 1,
+      flexDirection: 'column'
   }
 });
 
