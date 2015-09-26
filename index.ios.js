@@ -18,7 +18,7 @@ var ForeCast = React.createClass({
         return (
             <View>
               <Text>
-                ForeCast Details {this.props.main}
+                {this.props.main}
               </Text>
               <Text>
                 Current Conditions {this.props.description}
@@ -44,8 +44,23 @@ var WeatherProject = React.createClass({
       }
   },
 
-  _handleTextChange : function() {
-      console.log("Hello world")
+    _handleTextChange: function(event) {
+    var zip = event.nativeEvent.text;
+    fetch('http://api.openweathermap.org/data/2.5/weather?q='
+      + zip + '&units=imperial')
+      .then((response) => response.json())
+      .then((responseJSON) => {
+        this.setState({
+          forecast: {
+            main: responseJSON.weather[0].main,
+            description: responseJSON.weather[0].description,
+            temp: responseJSON.main.temp
+          }
+        });
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
   },
 
   render: function() {
