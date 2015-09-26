@@ -36,11 +36,7 @@ var WeatherProject = React.createClass({
   getInitialState : function() {
       return {
          margin : 25,
-         forecast: {
-            main : "Main details",
-            description : "dummy",
-            temp : "35"
-         }
+         forecast: null
       }
   },
 
@@ -65,7 +61,10 @@ var WeatherProject = React.createClass({
 
   render: function() {
 
-    var foreCastContent = <ForeCast main={this.state.forecast.main}
+    var foreCastContent = null
+
+    if(this.state.forecast !=null)
+      foreCastContent = <ForeCast main={this.state.forecast.main}
                   description={this.state.forecast.description}
                   temp={this.state.forecast.temp}/>;
 
