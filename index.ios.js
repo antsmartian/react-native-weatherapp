@@ -44,6 +44,10 @@ var WeatherProject = React.createClass({
       }
   },
 
+  _handleTextChange : function() {
+      console.log("Hello world")
+  },
+
   render: function() {
 
     var foreCastContent = <ForeCast main={this.state.forecast.main}
@@ -55,7 +59,8 @@ var WeatherProject = React.createClass({
         <Text style={styles.welcome}>
           Enter your zip code
         </Text>
-        <TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: this.state.margin }} placeholder="ZipCode" />
+        <TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: this.state.margin }} placeholder="ZipCode" 
+          onSubmitEditing={this._handleTextChange}/>
         {foreCastContent}
       </View>
     );
