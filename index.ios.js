@@ -13,6 +13,24 @@ var {
   TextInput
 } = React;
 
+var ForeCast = React.createClass({
+    render : function() {
+        return (
+            <View>
+              <Text>
+                ForeCast Details
+              </Text>
+              <Text>
+                Current Conditions
+              </Text>
+              <Text>
+                 °F
+              </Text>
+            </View>
+        )
+    }
+})
+
 var WeatherProject = React.createClass({
 
   getInitialState : function() {
@@ -22,12 +40,16 @@ var WeatherProject = React.createClass({
   },
 
   render: function() {
+
+    var foreCastContent = <ForeCast />
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Enter your zip code
         </Text>
         <TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: this.state.margin }} placeholder="ZipCode" />
+        {foreCastContent}
       </View>
     );
   }
