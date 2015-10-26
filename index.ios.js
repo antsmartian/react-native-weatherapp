@@ -103,15 +103,11 @@ var WeatherProject = React.createClass({
 });
 
 var styles = StyleSheet.create({
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-    container: {
+  container: {
     flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 60
+    backgroundColor: '#F5FCFF',
   }
 });
 
