@@ -39,7 +39,6 @@ var WeatherProject = React.createClass({
   componentDidMount : function() {
       AsyncStorage.multiGet(['pincode'], (err,val) => {
           var obj = _.zipObject(val)
-          var input = this.refs.pincode
           this.setState({
               pincode : obj['pincode']
           })
@@ -94,7 +93,7 @@ var WeatherProject = React.createClass({
         <Text style={styles.welcome}>
           Enter your zip code
         </Text>
-        <TextInput ref="pincode" value={this.state.pincode} onChangeText={(text) => this.setState({ pincode: text })} style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: this.state.margin }} placeholder="ZipCode" 
+        <TextInput value={this.state.pincode} onChangeText={(text) => this.setState({ pincode: text })} style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: this.state.margin }} placeholder="ZipCode" 
           onSubmitEditing={this._handleTextChange}/>
         {foreCastContent}
       </View>
